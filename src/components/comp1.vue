@@ -1,24 +1,35 @@
 <template>
-  <div id='some'>
-    <div v-if="1 + 2 == 3">
-      <p>I'm Comp one => {{name}}</p>
-      <Comp2 />
-    </div>
+<div>
+  <div v-if="condition">
+    <span>Hi from Comp1, I'm {{firstName}}</span>
+    <span>Here is my email: {{contactme}}</span>
   </div>
+  <div v-else>
+    <span>Hi from Comp1, I'm {{otherName}}.</span>
+    <span>Here is my email: {{contactme}}</span>
+  </div>
+  <Comp2
+  :othername="otherName"
+  />
+</div>
 </template>
 
 <script>
-import Comp2 from './comp2.vue'
- 
- export default {
-    components: {
-      Comp2
-    },
-    el: '#some',
-    data: {
-        name: 'das bus'
-    }
-  }
+import Comp2 from './Comp2.vue'
 
+export default {
+  components: {
+    Comp2
+  },
+  data() {
+    return {
+      firstName: "das bus",
+      otherName: "cellphone",
+      condition: false
+    };
+  },
+  props: ["contactme", "groceries"]
+};
 </script>
+
 

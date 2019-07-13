@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-    <p id="something">I'm app.vue =>{{name}}</p>
-    <Comp1/>
-    <comp3 v-bind:examples="name"></comp3>
+  <h1>From App.vue: {{email}}</h1>
+    <Comp1 
+    :contactme="email"
+    :groceries="groceryList" 
+    />
   </div>
 </template>
 
 <script>
-  import Comp1 from "./components/comp1.vue"
-  import Comp3 from "./components/comp3.vue"
-
-  export default {
-    components: {
-      Comp1,
-      Comp3
-    },
-    data: {
-      name: 'jimmy p'
-    }
-
+import Comp1 from "./components/Comp1.vue";
+export default {
+  components: {
+    Comp1
+  },
+  data() {
+    return {
+      email: "jojo@hotto.com",
+      groceryList: [
+        { id: 1, item: "broccoli" },
+        { id: 2, item: "mushrooms" },
+        { id: 3, item: "gouda" }
+      ]
+    };
   }
+};
 </script>

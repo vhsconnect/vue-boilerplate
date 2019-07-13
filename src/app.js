@@ -8,9 +8,13 @@ new Vue({
   el: '#app',
   render: h => h(App), //the h function is the render function
   data: {
-    name: 'sako'
+    name: 'sako',
+    grocerylist: 
+      [
+        {id: 1, text: 'cheese'},
+        {id: 2, text: 'salami'}
+      ]
   }
-
 })
 
 
