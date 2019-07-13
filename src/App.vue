@@ -12,17 +12,5 @@ export default {
   components: {
     Container
   },
-  data() {
-    return {
-
-      email: "jojo@hotto.com",
-      groceryList: [
-        { id: 1, item: "broccoli" },
-        { id: 2, item: "mushrooms" },
-        { id: 3, item: "gouda" }
-      ]
- 
-    };
-  }
 };
 </script>

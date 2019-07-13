@@ -15,6 +15,8 @@
 
 <script>
 import TodoItem from './TodoItem.vue'
+import InputComp from './InputComp.vue'
+
 export default {
   components: {
     TodoItem
