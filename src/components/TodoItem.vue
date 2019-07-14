@@ -1,5 +1,8 @@
 <template>
-  <li>{{todo.text}}</li>
+  <li>{{todo.text}} 
+    <button @click="$emit('removeitem', todo.id)"> 
+   press 
+    </button></li>
 </template>
 
 
@@ -8,3 +11,9 @@ export default {
   props: ['todo']
 }
 </script>
+
+<style>
+li {
+  color: whitesmoke
+}
+</style>

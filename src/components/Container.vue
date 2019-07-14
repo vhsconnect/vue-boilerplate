@@ -2,7 +2,7 @@
   <div>
     <h1>Inside Container</h1>
     <InputComp v-model="addItemInput" placeholder="enter an item" @keydown.enter="addItem" />
-    <TodoList :todos="todos" />
+    <TodoList :todos="todos" :removeitem="removeItem" />
   </div>
 </template>
 
@@ -37,6 +37,12 @@ export default {
         });
         this.addItemInput = "";
       }
+    },
+    removeItem(id){
+     let newTodos = this.todos.filter((item) => {
+        return item.id !== id
+      })
+      this.todos = newTodos
     }
   }
 };

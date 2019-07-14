@@ -6,6 +6,7 @@
         v-for="todo in todos"
         :key="todo.id"
         :todo="todo" 
+        @removeitem="removeitem"
        />
     </ul>
 
@@ -15,14 +16,15 @@
 
 <script>
 import TodoItem from './TodoItem.vue'
-import InputComp from './InputComp.vue'
+
 
 export default {
   components: {
     TodoItem
   },
   props: [
-    "todos"
+    "todos",
+    "removeitem"
   ]
 }
 </script>
