@@ -2,7 +2,7 @@
   <div>
     <h1>Inside Container</h1>
     <InputComp v-model="addItemInput" placeholder="enter an item" @keydown.enter="addItem" />
-    <TodoList :todos="todos" :removeitem="removeItem" />
+    <TodoList :getsprite="getSprite" :todos="todos" :removeitem="removeItem" :gettime="getTime"/>
   </div>
 </template>
 
@@ -20,10 +20,11 @@ export default {
   data() {
     return {
       addItemInput: "",
+      sprites: [],
       todos: [
-        { id: id++, text: "clean hoouse" },
-        { id: id++, text: "learn vue" },
-        { id: id++, text: "make a sandwhich" }
+        { id: id++, text: "clean hoouse"}, 
+        { id: id++, text: "make food"},
+        { id: id++, text: "same thing"},
       ]
     };
   },
@@ -33,7 +34,8 @@ export default {
       if (trimmedText) {
         this.todos.push({
           id: id++,
-          text: trimmedText
+          text: trimmedText,
+          data: this.spr 
         });
         this.addItemInput = "";
       }
@@ -43,7 +45,11 @@ export default {
         return item.id !== id
       })
       this.todos = newTodos
-    }
+    },
+    getTime(){
+      let date = new Date()
+      return date.getHours() + ':' + date.getMinutes()
+    },
   }
 };
 </script>

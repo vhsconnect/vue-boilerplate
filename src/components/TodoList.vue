@@ -7,6 +7,8 @@
         :key="todo.id"
         :todo="todo" 
         @removeitem="removeitem"
+        :gettime="gettime"
+        :getsprite="getsprite"
        />
     </ul>
 
@@ -24,7 +26,8 @@ export default {
   },
   props: [
     "todos",
-    "removeitem"
+    "removeitem",
+    "gettime",
   ]
 }
 </script>
