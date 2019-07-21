@@ -8,21 +8,21 @@
 </template>
 
 <script>
-export default {
-  props: {
-    value: {
-      type: String,
-      default: ''
-    }
-  },
-  computed: {
-    keypress(){
-      return {
-        ...this.$listeners,
-        input: e =>  this.$emit('input', e.target.value)
+  export default {
+    props: {
+      value: {
+        type: String,
+        default: ''
+      }
+    },
+    computed: {
+      keypress(){
+        return {
+          ...this.$listeners,
+          input: e =>  this.$emit('input', e.target.value)
+        }
       }
     }
   }
-}
 </script>
 
