@@ -4,10 +4,9 @@
     {{todo.data}}
     {{gettime()}}
     <button @click="$emit('removeitem', todo.id)">press</button>
-    <p> {{ pokeData }} </p>
+    <p> One of Raichu's moves is {{ pokeData }} </p>
   </li>
 </template>
-
 
 <script>
 export default {
@@ -17,7 +16,7 @@ export default {
     }
   },
   props: ['todo', 'gettime'],
-  //lifecycle hook to call fire async functions after data becomes watched
+  //lifecycle hook to fire async functions after data becomes watched
   created: function() {
     let v = this;
     return fetch('https://pokeapi.co/api/v2/pokemon/raichu')
@@ -25,7 +24,8 @@ export default {
         return res.json()
       })
       .then(function(res){
-        v.pokeData = res.abilities[0]
+        let randNum = Math.floor(Math.random() * 50)
+        v.pokeData = (res.moves[randNum].move.name).toUpperCase()
       })
   },
   methods: {
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style>
-li {
-  color: whitesmoke;
-}
+  li {
+    color: whitesmoke;
+  }
 </style>

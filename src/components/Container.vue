@@ -8,10 +8,9 @@
 
 
 <script>
-let id = 0;
 import TodoList from "./TodoList.vue";
 import InputComp from "./InputComp.vue";
-
+let id = 0;
 export default {
   components: {
     TodoList,
@@ -22,9 +21,9 @@ export default {
       addItemInput: "",
       sprites: [],
       todos: [
-        { id: id++, text: "clean hoouse"}, 
+        { id: id++, text: "clean house"}, 
         { id: id++, text: "make food"},
-        { id: id++, text: "same thing"},
+        { id: id++, text: "learn vue"},
       ]
     };
   },

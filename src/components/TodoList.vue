@@ -1,7 +1,7 @@
 <template>
   <div>
-  <h2>Inside TodoList</h2>
     <ul>
+      <!-- notice the syntactical difference between passing a function down as props, vs passing down an event listener ref -->
       <TodoItem
         v-for="todo in todos"
         :key="todo.id"
@@ -15,12 +15,9 @@
   </div>
 </template>
 
-
 <script>
-import TodoItem from './TodoItem.vue'
-
-
-export default {
+  import TodoItem from './TodoItem.vue'
+  export default {
   components: {
     TodoItem
   },
@@ -29,5 +26,5 @@ export default {
     "removeitem",
     "gettime",
   ]
-}
+  }
 </script>
