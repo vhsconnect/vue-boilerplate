@@ -1,12 +1,11 @@
 <template>
   <div>
     <ul>
-      <!-- notice the syntactical difference between passing a function down as props, vs passing down an event listener ref -->
       <TodoItem
         v-for="todo in todos"
         :key="todo.id"
         :todo="todo" 
-        @removeitem="removeitem"
+        :removeItem="removeItem"
         :gettime="gettime"
         :getsprite="getsprite"
        />
@@ -23,7 +22,7 @@
   },
   props: [
     "todos",
-    "removeitem",
+    "removeItem",
     "gettime",
   ]
   }

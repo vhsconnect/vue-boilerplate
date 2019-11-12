@@ -1,8 +1,13 @@
 <template>
   <div>
     <h1>Inside Container</h1>
-    <InputComp :itemInput="itemInput" placeholder="enter an item" :addItem="addItem" :updateInput="updateInput"/>
-    <TodoList :getsprite="getSprite" :todos="todos" :removeitem="removeItem" :gettime="getTime"/>
+    <InputComp
+      :itemInput="itemInput"
+      placeholder="enter an item"
+      :addItem="addItem"
+      :updateInput="updateInput"
+    />
+    <TodoList :getsprite="getSprite" :todos="todos" :removeItem="removeItem" :gettime="getTime" />
   </div>
 </template>
 
@@ -21,36 +26,36 @@ export default {
       itemInput: "",
       sprites: [],
       todos: [
-        { id: id++, text: "clean house"}, 
-        { id: id++, text: "make food"},
-        { id: id++, text: "learn vue"},
+        { id: id++, text: "clean house" },
+        { id: id++, text: "make food" },
+        { id: id++, text: "learn vue" }
       ]
     };
   },
   methods: {
     addItem() {
-      console.log('enter key pressed')
+      console.log("enter key pressed");
       const trimmedText = this.itemInput.trim();
       if (trimmedText) {
         this.todos.push({
           id: id++,
-          text: trimmedText,
+          text: trimmedText
         });
         this.itemInput = "";
       }
     },
-    removeItem(id){
-     let newTodos = this.todos.filter((item) => {
-        return item.id !== id
-      })
-      this.todos = newTodos
+    removeItem(id) {
+      let newTodos = this.todos.filter(item => {
+        return item.id !== id;
+      });
+      this.todos = newTodos;
     },
-    getTime(){
-      let date = new Date()
-      return date.getHours() + ':' + date.getMinutes()
+    getTime() {
+      let date = new Date();
+      return date.getHours() + ":" + date.getMinutes();
     },
-    updateInput(value){
-      this.itemInput = value
+    updateInput(value) {
+      this.itemInput = value;
     }
   }
 };

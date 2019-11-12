@@ -13,11 +13,6 @@ export default {
       type: Function
     }
   },
-  data() {
-    return {
-      vhsText: "vhs ws here"
-    };
-  },
   components: {
     MamoComponent
   },
