@@ -1,33 +1,22 @@
 <script>
-// <template>
-//   <div>
-//     <input type="text" class="input" :value="value" v-on="keypress" />
-//     <MamoComponent :aLittleText="vhsText" />
-//   </div>
-// </template>
-</script>
-
-<script>
 import MamoComponent from "./MamoComponent.vue";
 export default {
   props: {
-    value: {
+    itemInput: {
       type: String,
       default: ""
+    },
+    updateInput: {
+      type: Function
+    },
+    addItem: {
+      type: Function
     }
   },
   data() {
     return {
       vhsText: "vhs ws here"
     };
-  },
-  computed: {
-    keypress: function(e) {
-      return {
-        ...this.$listeners,
-        input: e => this.$emit("input", e.target.value)
-      };
-    }
   },
   components: {
     MamoComponent
@@ -36,10 +25,11 @@ export default {
     return (
       <div>
         <input
-          value={this.value}
+          value={this.itemInput}
           type="text"
           class="input"
-          onInput={this.keypress}
+          onInput={e => this.updateInput(e.target.value)}
+          onChange={e => {this.addItem(); } }
         />
         <MamoComponent aLittleText={this.vhsText} />
       </div>

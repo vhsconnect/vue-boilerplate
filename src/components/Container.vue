@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Inside Container</h1>
-    <InputComp v-model="addItemInput" placeholder="enter an item" @keydown.enter="addItem" />
+    <InputComp :itemInput="itemInput" placeholder="enter an item" :addItem="addItem" :updateInput="updateInput"/>
     <TodoList :getsprite="getSprite" :todos="todos" :removeitem="removeItem" :gettime="getTime"/>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      addItemInput: "",
+      itemInput: "",
       sprites: [],
       todos: [
         { id: id++, text: "clean house"}, 
@@ -29,14 +29,14 @@ export default {
   },
   methods: {
     addItem() {
-      const trimmedText = this.addItemInput.trim();
+      console.log('enter key pressed')
+      const trimmedText = this.itemInput.trim();
       if (trimmedText) {
         this.todos.push({
           id: id++,
           text: trimmedText,
-          data: this.spr 
         });
-        this.addItemInput = "";
+        this.itemInput = "";
       }
     },
     removeItem(id){
@@ -49,6 +49,9 @@ export default {
       let date = new Date()
       return date.getHours() + ':' + date.getMinutes()
     },
+    updateInput(value){
+      this.itemInput = value
+    }
   }
 };
 </script>
